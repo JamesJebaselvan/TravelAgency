@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Travel Agency</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <style>
+:root{
+    --theme-color: linear-gradient(to right, #000,#133357);
+}
+body{
+    margin: 0;
+    /*font-family: 'Roboto Slab';*/
+    font-family: 'Roboto';
+}
+.container{
+    width: 90%;
+    margin: auto;
+    /*max-width: 1015px;*/
+}
+.header{
+    /*background: rgb(16, 43, 74);*/
+    background-image: var(--theme-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: lighter;
+}
+.header p{
+    margin: 0;
+}
+section{
+    width: 80%;
+    margin: auto;
+}
+.topnav {
+    overflow: hidden;
+    background-color: white;
+    font-family: 'Roboto';
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.topnav a {
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+.topnav a:hover {
+  /*background-color: #ddd;*/
+  color: black;
+}
+h1{
+   color:black; 
+}
+article{
+   color:#404040; 
+}
+button{
+    text-transform: uppercase;
+    color: white;
+    height: 50px;
+    width: 200px;
+    /*background: rgb(16, 43, 74);*/
+    background-image: var(--theme-color);
+    border-radius: 5px;
+    border-color: rgb(16, 43, 74);
+}
+.flex-row{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+.flex-col{
+    width: 100%;
+}
+img{
+    width: 100%;
+}
+.weather-section{
+    background: rgb(16, 43, 74);
+    /*background-image: var(--theme-color);*/
+    color: white;
+    /*padding: 10px;*/
+}
+.weather-section .flex-col{
+/*    padding: 20px;
+    height: 200px;*/
+    text-align: center;
+}
+.weather-section .flex-col:nth-child(1){
+    background-color: #0D7E88;
+}
+.weather-section .flex-col:nth-child(2){
+    background-color: #D09378;
+}
+.weather-section .flex-col:nth-child(3){
+    background-color: #405B5D;
+}
+.weather-section .flex-col:nth-child(4){
+    background-color: #74A748;
+}
+.icon-sunny{
+    width: 50px;
+    /*margin-top: 40px;*/
+}
+h2{
+    font-size: 62px;
+    margin: 0 0 20px 0;
+}
+label{
+    display: block;
+    padding: 20px;
+}
+.cover-section{
+    color: white;
+    width: 100%;
+}
+.overlay-container{
+    position:absolute;
+    transform: translate(100px, -200px);    
+    letter-spacing: 2px;
+}
+.overlay-container h1{
+    color: white;
+    font-size: 48px;
+    margin:  0 0 10px 0;
+}
+.overlay-container p{
+    color: white;
+    font-size: 26px;
+    margin: 0;
+} 
+.quote-form-grp form{
+  max-width: 450px;
+  margin: auto;  
+}
+.quote-form-grp h1{
+    color: rgb(16, 43, 74);
+    text-align: center;
+    font-size: 26px;
+}
+.quote-form-grp label{
+    padding: 0;
+    color:#aaaaaa;
+    font-size: 12px;
+    margin: 5px 0;
+}
+.quote-form-grp input{
+    padding: 7px 5px;
+    color: #aaaaaa;
+    border-radius: 5px;
+    height: 20px;
+    width: 97%;
+    border: 1px solid #d9d9d9;
+    margin: 5px 0;
+}
+.quote-form-grp button{
+    height: 40px;
+    width: 140px;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.swiper-slide span{
+    position: relative;
+    top: 220px;
+}
+footer{
+    /*background: rgb(16, 43, 74);*/
+    background-image: var(--theme-color);
+    color: white;
+    display: flex;
+    padding: 25px 50px;
+}
+footer ul{
+    list-style:none;
+}
+footer ul li{
+    padding: 5px;
+    font-size: 14px;
+}
+footer ul li:first-child{
+    font-weight: bolder;
+    padding-bottom: 10px;
+    font-size: 16px;
+}
+.header-section .flex-col{
+    padding: 25px;
+}
+.header-section h1{
+    font-size: 42px;
+}
+.header-section button{
+    height: 40px;
+    width: 140px;
+}
+.welcome-image{
+    max-width: 350px;
+    width: 100%;
+}
+sup{
+    font-size: 32px;
+    position: relative;
+    top: -8px;
+}
+input + span{
+    color: red;
+    font-size: 12px;
+}
+.success_toast{
+    background: #d0f8cc;
+    height: 15px;
+    padding: 10px;
+    font-size: 12px;
+    display: none;
+}
+.success_toast.show{
+    display: block;
+}
+.swiper-container{
+    width: 120%;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+ul.swiper-wrapper{
+    white-space: nowrap;
+    overflow-x: auto;
+}
+li.swiper-slide{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px 10px 10px 0;
+    margin: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px 10px 50px 10px;
+    display: inline-block;
+}
+.swiper-slide span{
+    transform: trans/*late(0px, 210px);
+    position: absolu*/te;
+}
+.dest-label{
+    padding-left: 0;
+    font-size: 22px;
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+}
+@media only screen and (max-width: 769px){
+    .topnav{
+        justify-content: center;
+    }
+    .flex-row{
+        flex-direction: column;
+    }
+    .container,
+    .topnav,
+    section{
+        width: 100%;
+    }
+    .header-section .flex-col{
+        padding: 10px 0;
+    }
+    .header-section h1 {
+        font-size: 22px;
+        text-align: center;
+    }
+    article,
+    .weather-section{
+        text-align: center;
+    }
+    .header-section button {
+        margin: 20px auto 40px auto;
+        display: block;
+    }
+    .weather-section .flex-col{
+        width: 50%;
+    }
+    .flex-row.inline-block{
+        display: block;
+    }
+    .flex-col.inline-block{
+        display: inline-block;
+    }
+    .quote-form-grp{
+        padding: 30px;
+    }
+    .swiper-container{
+        width: 100%;
+    }
+    .overlay-container h1{
+        font-size: 22px;
+    }
+    .overlay-container p{
+        font-size: 14px;
+    }
+    .quote-form-grp h1{
+        font-size: 18px;
+    }
+    .swiper-slide span{
+        position: relative;
+        top: 220px;
+    }
+    .weather-section h3{
+        font-size: 14px;
+    }
+    .weather-section h2{
+        font-size: 26px;
+    }
+    .icon-sunny{
+        width: 30px;
+    }
+    .overlay-container {
+        transform: translate(20px, -90px);
+    }
+    .topnav a{
+        font-size: 14px;
+    }
+    sup{
+        font-size: 18px;
+        top: -4px;
+    }
+    footer{
+        display: block;
+    }
+    footer ul{
+        display: inline-block;
+        padding: 0;
+    width: 100%;
+    }
+    footer ul:last-child{
+        padding-bottom: 100px;
+    }
+    .dest-label{
+        padding: 20px;
+        font-size: 16px;
+    }
+}
+  </style>
+  <script type="text/javascript">
+      
+      let weatherData = new Array();
+      let destinationsData = new Array();
+
+      function validateEmail(email) {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+      }
+      
+      function checkFormData(){
+          let name = $('#customer_name').val();
+          let contactno = $('#customer_contactno').val();
+          let email = $('#customer_email').val();
+          let name_ok,contactno_ok,email_ok;
+          if(name){
+            console.log('Valid name');
+            name_ok = true;
+          }else{
+              name_ok = false;
+            $('#customer_name_error').text('Name is required.'); 
+          }
+          
+          if(contactno){
+            let phonePattern = new RegExp("\d{10}");
+            if(phonePattern.test(contactno)){
+                console.log('Valid contact number');
+                contactno_ok = true;
+            }else{
+                contactno_ok = false;
+               $('#customer_contactno_error').text('Invalid Contact No.');   
+            }
+          }else{
+              contactno_ok = false;
+            $('#customer_contactno_error').text('Contact No is required.');  
+          }
+          
+          if(email){
+              console.log('Valid email');
+              email_ok = validateEmail(email);
+          }else{
+              email_ok = false;
+             $('#customer_email_error').text('Email is required.'); 
+          }
+          
+          setTimeout(function(){
+              if(name_ok && contactno_ok && email_ok){
+                   $('#success_toast').toggle('show'); 
+//                  return true;
+              }else{
+//                  return false;
+              }
+          },0);
+      }
+      
+      function clearErrors(){
+           $('#customer_name_error').text(''); 
+          $('#customer_contactno_error').text('');  
+           $('#customer_email_error').text(''); 
+      }
+
+      
+      
+      // A $( document ).ready() block.
+        $( document ).ready(function() {
+            // GET WEATHER DATA  
+            $.get("https://run.mocky.io/v3/e3ae9d2e-78f5-403d-b6cd-fa7f8c7e1576", function(data, status){
+//                alert("Data: " + data + "\nStatus: " + status);
+                weatherData = data.result;
+//                console.log('Weather Data : '+JSON.stringify(data));
+                if(weatherData && weatherData.length > 0){
+                    var html_content = '';
+                    for(var i=0; i< weatherData.length;i++){
+//                        console.log(weatherData[i]);
+//                        console.log(weatherData[i].city);
+                        html_content +=  '<div class="flex-col inline-block"><h3>'+weatherData[i].city+'</h3><img src="assets/icon-party-sunny.svg" alt="icon-sunny" class="icon-sunny"/><h2>'+weatherData[i].temp_Celsius+'<sup>o</sup></h2></div>';
+//                        html_content +=  '<div class="flex-col"><h3>'+weatherData[i].city+'</h3><img src="assets/icon-party-sunny.svg" alt="icon-sunny" class="icon-sunny"/><h2>'+weatherData[i].temp_Fahr+'<sup>o</sup></h2></div>';
+                    }
+                    $('#weatherData').append(html_content);
+                }else{
+                    console.log('Weather data not found');
+                }
+                
+              });
+
+            
+              
+              // GET WEATHER DATA  
+            $.get("https://run.mocky.io/v3/3e6901dd-9a60-4771-a8cb-9c62177a654c", function(data, status){
+//                alert("Data: " + data + "\nStatus: " + status);
+                console.log('Destinations Data : '+JSON.stringify(data));
+
+//                alert("Data: " + data + "\nStatus: " + status);
+                destinationsData = data.result;
+//                console.log('Weather Data : '+JSON.stringify(data));
+                if(destinationsData && destinationsData.length > 0){
+                    var html_content = '';
+                    for(var i=0; i< destinationsData.length;i++){
+//                        console.log(destinationsData[i]);
+//                        console.log(destinationsData[i].city);
+                        html_content +=  '<li class="swiper-slide" style="background-image:url('+destinationsData[i].imageUrl+')"> <span>'+destinationsData[i].city+'</span></li>';
+                    }
+                    // setTimeout(function(){
+                        $('#destination-swiper').append(html_content);
+                    // },100);
+                }else{
+                   console.log('Destinations data not found');
+                }
+
+              });
+            
+            $('input').focus(function(){
+                console.log('Input focussed');
+                clearErrors();
+            });
+            
+            // Set the date we're counting down to
+            var countDownDate = new Date("Aug 8, 2021 18:00:00").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+              // Get today's date and time
+              var now = new Date().getTime();
+
+              // Find the distance between now and the count down date
+              var distance = countDownDate - now;
+
+              // Time calculations for days, hours, minutes and seconds
+              var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+              var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+              var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+              var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+              // Display the result in the element with id="demo"
+              document.getElementById("count_down_timer").innerHTML = days + "d " + hours + "h "
+              + minutes + "m " + seconds + "s ";
+
+              // If the count down is finished, write some text
+              if (distance < 0) {
+                clearInterval(x);
+                console.log('Time Over');
+//                document.getElementById("demo").innerHTML = "EXPIRED";
+              }
+            }, 100);
+            
+            console.log( "DOM ready!" );
+        });
+  </script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p>Book now to get exciting travel deals. Upto 40% off an credit card payments<br> offers ends in <span id="count_down_timer"></span></p>
+        </header>
+        <div class="topnav">
+            <a href="#getaquote">Get a quote</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#weather">Weather</a>
+        </div>
+        <section class="header-section">
+            <div class='flex-row'>
+                <div class="flex-col">
+                    <center><img src="assets/welcome-image.svg" alt="welcome-image" class="welcome-image"/></center>
+                </div>
+                <div class="flex-col">
+                    <h1>Life is short<br> and the world is wide!</h1>
+                    <article>Stay at the comfort of your homes and book a trip to travel<br>after the post pandemic era.</article><br>
+                    <button>Plan a trip</button>
+                </div>
+            </div>
+        </section>
+        <section id="weather" class="weather-section">
+            <label>THE WEATHER CHANNEL</label>
+            <div id="weatherData" class='flex-row inline-block'></div>
+        </section>
+        <section id="destinations" class="destination-section">
+            <label class="dest-label">FEATURED DESTINATIONS</label>
+            <div class="swiper-container" >
+                <ul id="destination-swiper" class="swiper-wrapper"></ul>
+            </div>
+        </section>
+        <section class="cover-section">
+            <div class='flex-row'>
+                <div class="flex-col">
+                    <img src="assets/promo-image.png" alt="promo-image" class="promo-image"/>
+                    <div class="overlay-container">
+                        <h1>PLAN A TRIP</h1>
+                        <p>Make your vacation the most<br> memorable one</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="getaquote" class="quote-section">
+            <div class='flex-row'>
+                <div class="flex-col">
+                    <div class="quote-form-grp">
+                        <h1>Travelling as a group? Get a Quote</h1>
+                        <form name="quote_form">
+                            <label>Your Name</label>
+                            <input type="text" id="customer_name" name="customer_name">
+                            <span id="customer_name_error"></span>
+                            <label>Contact No</label>
+                            <input type="text" id="customer_contactno"  name="customer_contactno">
+                            <span id="customer_contactno_error"></span>
+                            <label>Email</label>
+                            <input type="text" id="customer_email"  name="customer_email">
+                            <span id="customer_email_error"></span>
+                            <div id="success_toast" class="success_toast">
+                                <span> We hear you! We will get back to you for planning your vacation.</span>
+                            </div>
+                            <center><button type='button' onclick="checkFormData()">SUBMIT</button></center><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <ul>
+                <li>Tripzone</li>
+                <li>About</li>
+                <li>Awards</li>
+                <li>Contact Us</li>
+                <li>Feedback</li>
+            </ul>
+            <ul>
+                <li>Main Offices</li>
+                <li>The United States</li>
+                <li>India</li>
+                <li>Brazil</li>
+                <li>Canada</li>
+            </ul>
+            <ul>
+                <li><b>Sub Offices</b></li>
+                <li>Australia</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+            </ul>
+            <ul>
+                <li>Disclaimer</li>
+                <li>This layout is created as a part of Sirius UI Requirements<br>All the above content has no direct relation with sirius business.</li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
